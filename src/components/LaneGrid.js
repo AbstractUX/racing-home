@@ -1,8 +1,9 @@
 import React from 'react';
+import './LaneGrid.css';
 
 const LaneGrid = () => {
   return (
-    <p>LaneGrid</p>
+    <div className="LaneGrid">LaneGrid</div>
   )
 }
 

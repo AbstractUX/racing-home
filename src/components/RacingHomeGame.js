@@ -3,12 +3,12 @@ import Lane from './Lane';
 
 export default class RacingHomeGame extends Component {
   render() {
-    return (<div class="container">
-              <div class="row">
-                <div class="col"><Lane /></div>
-                <div class="col"><Lane /></div>
-                <div class="col"><Lane /></div>
-                <div class="col"><Lane /></div>
+    return (<div className="container">
+              <div className="row">
+                <div className="col"><Lane laneNumber={0} /></div>
+                <div className="col"><Lane laneNumber={1} /></div>
+                <div className="col"><Lane laneNumber={2} /></div>
+                <div className="col"><Lane laneNumber={3} /></div>
               </div>
             </div>)
   }
