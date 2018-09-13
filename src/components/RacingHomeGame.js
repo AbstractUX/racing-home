@@ -70,7 +70,7 @@ class RacingHomeGame extends Component {
       <div>
         <h3>GAME OVER!</h3>
         <p>You drove too fast and crashed. Safety behind the wheel is very important. </p>
-        <p>Fortunately a <a href="https://amzn.to/2N9e1wF">Dashboard Camera Recorder</a> can back you up in the event of any incident on the road.</p>
+        <p>Fortunately a <a href="https://amzn.to/2N9e1wF">Dashboard Camera Recorder</a> is ready to back you up in the event of an incident on the road.</p>
         <button onClick={() => window.location.reload()}>Play again!</button>
       </div>
     )
