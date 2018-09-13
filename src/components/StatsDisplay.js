@@ -5,7 +5,7 @@ class StatsDisplay extends Component {
   render() {
     return (
       <div>
-        <h1>Miles Driven: {this.props.yourCar.miles}</h1>
+        <h2>Miles Driven: {this.props.yourCar.miles}</h2>
       </div>
     )
   }
