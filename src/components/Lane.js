@@ -23,14 +23,12 @@ class Lane extends Component {
       };
     });
 
-    console.log(this.props.obstacles);
     return laneGrids;
   }
   handleLaneSwitch = (lane) => {
     this.props.dispatch(switchToLane(lane));
   }
   render() {
-    console.log('current lane', this.props.yourCar.currentLane);
     return (<div onClick={() => this.handleLaneSwitch(this.props.laneNumber)} className="Lane">
               {this.renderGrids(12)}
             </div>)
