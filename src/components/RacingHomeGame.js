@@ -9,12 +9,18 @@ import Footer from './Footer';
 
 class RacingHomeGame extends Component {
   state = {
-    timer: undefined
+    timer: undefined,
+    speed: 300
   }
   timerTicks = () => {
     const gameState = this.props.gameState;
     if (gameState === 'in-progress') {
       const randomLane = Math.floor(Math.random() * 4);
+      if (this.props.yourCar.miles % 5 === 0) {
+        if (this.state.speed > 30) {
+            this.increaseSpeedBy(5);
+        }
+      }
       this.props.dispatch(addMile());
       this.props.dispatch(createObstacle('tree', randomLane));
       this.props.dispatch(moveDown());
@@ -27,6 +33,21 @@ class RacingHomeGame extends Component {
     } else if (gameState === 'you-lose') {
       clearInterval(this.state.timer);
     }
+  }
+  increaseSpeedBy = (speedIncrement) => {
+    clearInterval(this.state.timer);
+    this.setState((prevState) => ({
+      speed: prevState.speed - speedIncrement
+    }));
+    this.resetTimer(this.state.speed);
+  }
+  resetTimer = (speed) => {
+    const timer = setInterval(() => {
+      this.timerTicks();
+    }, speed);
+    this.setState(() => ({
+      timer
+    }))
   }
   checkForCollision = () => {
     let collided = false;
@@ -42,12 +63,7 @@ class RacingHomeGame extends Component {
     return collided;
   }
   componentDidMount() {
-    const timer = setInterval(() => {
-      this.timerTicks();
-    }, 200);
-    this.setState(() => ({
-      timer
-    }))
+    this.resetTimer(this.state.speed);
   }
   render() {
     const gameOverDisplay = (
