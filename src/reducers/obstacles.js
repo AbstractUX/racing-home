@@ -13,8 +13,9 @@ export default (state = obstaclesDefaultState, action) => {
       });
       return newState;
     case 'KILL_LAST_GRID_POSITION_OBSTACLES':
-      //TO DO
-      return state;
+      return state.filter((obstacle) => {
+        return obstacle.gridPosition < 12
+      });
     default:
       return state;
   }

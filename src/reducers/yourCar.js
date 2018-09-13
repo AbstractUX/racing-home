@@ -1,5 +1,6 @@
 const yourCarDefaultState = {
-  currentLane: 0
+  currentLane: 0,
+  miles: 0
 };
 
 export default (state = yourCarDefaultState, action) => {
@@ -8,6 +9,11 @@ export default (state = yourCarDefaultState, action) => {
       return {
         ...state,
         currentLane: action.lane
+      };
+    case 'ADD_MILE':
+      return {
+        ...state,
+        miles: state.miles + 1
       };
     default:
       return state;
