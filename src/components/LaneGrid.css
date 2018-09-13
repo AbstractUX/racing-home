@@ -3,10 +3,24 @@
   border: 1px solid black;
 }
 
+.car {
+  height: 1.5rem;
+}
+
+.tree {
+  height: 1.5rem;
+}
+
 @media (min-width: 768px) {
   .LaneGrid {
     height: 2rem;
     border: 1px solid black;
+  }
+  .car {
+    height: 2.5rem;
+  }
+  .tree {
+    height: 2.5rem;
   }
 }
 

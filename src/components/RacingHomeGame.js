@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
 import Lane from './Lane';
+import { connect } from 'react-redux';
+import { createObstacle, moveDown, killLastGridPositionObstacles } from '../actions/obstacles';
 
-export default class RacingHomeGame extends Component {
+class RacingHomeGame extends Component {
+  timerTicks = () => {
+    const randomLane = Math.floor(Math.random() * 4);
+    console.log(randomLane);
+    this.props.dispatch(createObstacle('tree', randomLane));
+    this.props.dispatch(moveDown());
+    this.props.dispatch(killLastGridPositionObstacles());
+  }
   render() {
+    setInterval(() => {
+      this.timerTicks();
+    }, 400);
     return (<div className="container">
               <div className="row">
                 <div className="col"><Lane laneNumber={0} /></div>
@@ -13,3 +25,5 @@ export default class RacingHomeGame extends Component {
             </div>)
   }
 }
+
+export default connect()(RacingHomeGame);

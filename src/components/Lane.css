@@ -5,3 +5,15 @@
 .Lane {
   border: 2px solid black;
 }
+
+@media (min-width: 768px) {
+  .Lane {
+    border: 2px solid black;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Lane {
+    border: 2px solid black;
+  }
+}

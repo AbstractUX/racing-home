@@ -7,9 +7,23 @@ import { connect } from 'react-redux';
 class Lane extends Component {
   renderGrids = (numOfGrids) => {
     const laneGrids = [];
+    const obstacles = this.props.obstacles;
+
     for (let i = 0; i < numOfGrids; i++) {
-      laneGrids.push(<LaneGrid key={`lane-${this.props.laneNumber}-grid-${i}`} />);
+      if (i !== numOfGrids - 1) {
+        laneGrids.push(<LaneGrid key={`lane-${this.props.laneNumber}-grid-${i}`} />);
+      } else {
+        laneGrids.push(<LaneGrid key={`lane-${this.props.laneNumber}-grid-${i}`} carHere={this.props.yourCar.currentLane === this.props.laneNumber} />);
+      }
     }
+
+    obstacles.map((obstacle) => {
+      if (obstacle.lane === this.props.laneNumber) {
+        laneGrids[obstacle.gridPosition] = (<LaneGrid key={`lane-${this.props.laneNumber}-grid-${obstacle.gridPosition}`} obstacleHere={true} />)
+      };
+    });
+
+    console.log(this.props.obstacles);
     return laneGrids;
   }
   handleLaneSwitch = (lane) => {
@@ -25,7 +39,8 @@ class Lane extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    yourCar: state.yourCar
+    yourCar: state.yourCar,
+    obstacles: state.obstacles
   };
 };
 
