@@ -6,7 +6,7 @@ import tree from '../img/tree.gif';
 const LaneGrid = (props) => {
   if (props.carHere) {
     return (
-      <div className="LaneGrid bg-warning"><img src={car} className="car" /></div>
+      <div className="LaneGrid"><img src={car} className="car" /></div>
     )
   } else if (props.obstacleHere) {
     return (

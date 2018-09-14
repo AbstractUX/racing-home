@@ -1,6 +1,5 @@
 .LaneGrid {
   height: 1.5rem;
-  /* border: 1px solid black; */
 }
 
 .car {
@@ -14,7 +13,6 @@
 @media (min-width: 768px) {
   .LaneGrid {
     height: 2rem;
-    border: 1px solid black;
   }
   .car {
     height: 2.5rem;
@@ -27,6 +25,5 @@
 @media (min-width: 1200px) {
   .LaneGrid {
     height: 3rem;
-    border: 1px solid black;
   }
 }
