@@ -10,7 +10,7 @@ const LaneGrid = (props) => {
     )
   } else if (props.obstacleHere) {
     return (
-      <div className="LaneGrid bg-info"><img src={tree} className="tree" /></div>
+      <div className="LaneGrid"><img src={tree} className="tree" /></div>
     )
   } else {
     return (

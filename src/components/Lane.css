@@ -1,9 +1,9 @@
 .Lane:hover {
-  border: 2px solid yellow;
+  border: 2px solid blue;
 }
 
 .Lane {
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 @media (min-width: 768px) {

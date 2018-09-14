@@ -10,15 +10,17 @@ import Footer from './Footer';
 class RacingHomeGame extends Component {
   state = {
     timer: undefined,
-    speed: 300
+    speed: 400
   }
   timerTicks = () => {
     const gameState = this.props.gameState;
     if (gameState === 'in-progress') {
       const randomLane = Math.floor(Math.random() * 4);
       if (this.props.yourCar.miles % 5 === 0) {
-        if (this.state.speed > 30) {
-            this.increaseSpeedBy(5);
+        if (this.state.speed > 300) {
+            this.increaseSpeedBy(20);
+        } else if (this.state.spee > 30) {
+            this.increaseSpeedBy(10);
         }
       }
       this.props.dispatch(addMile());
