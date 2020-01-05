@@ -3,6 +3,7 @@ import LaneGrid from './LaneGrid';
 import './Lane.css';
 import { switchToLane } from '../actions/yourCar';
 import { connect } from 'react-redux';
+import hotkeys from 'hotkeys-js';
 
 class Lane extends Component {
   renderGrids = (numOfGrids) => {
@@ -26,9 +27,18 @@ class Lane extends Component {
     return laneGrids;
   }
   handleLaneSwitch = (lane) => {
+    if (lane < 0 || lane > 3) {
+      return;
+    }
     this.props.dispatch(switchToLane(lane));
   }
   render() {
+    hotkeys('left', () => {
+      this.handleLaneSwitch(this.props.yourCar.currentLane - 1);
+    });
+    hotkeys('right', () => {
+      this.handleLaneSwitch(this.props.yourCar.currentLane + 1);
+    });
     return (<div onClick={() => this.handleLaneSwitch(this.props.laneNumber)} className="Lane">
               {this.renderGrids(12)}
             </div>)
