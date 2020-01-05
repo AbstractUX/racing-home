@@ -25,7 +25,9 @@ class RacingHomeGame extends Component {
         }
       }
       this.props.dispatch(addMile());
-      this.props.dispatch(createObstacle('tree', randomLane));
+      if (Math.random() > 0.3) {
+        this.props.dispatch(createObstacle('tree', randomLane));
+      }
       this.props.dispatch(moveDown());
       this.props.dispatch(killLastGridPositionObstacles());
 
