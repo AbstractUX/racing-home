@@ -6,6 +6,7 @@ import { endGame } from '../actions/gameState';
 import Lane from './Lane';
 import StatsDisplay from './StatsDisplay';
 import Footer from './Footer';
+import './RacingHomeGame.css';
 
 class RacingHomeGame extends Component {
   state = {
@@ -79,10 +80,10 @@ class RacingHomeGame extends Component {
 
     return (<div className="container">
               <div className="row">
-                <div className="col"><Lane laneNumber={0} /></div>
-                <div className="col"><Lane laneNumber={1} /></div>
-                <div className="col"><Lane laneNumber={2} /></div>
-                <div className="col"><Lane laneNumber={3} /></div>
+                <div className="col padding-0"><Lane laneNumber={0} /></div>
+                <div className="col padding-0"><Lane laneNumber={1} /></div>
+                <div className="col padding-0"><Lane laneNumber={2} /></div>
+                <div className="col padding-0"><Lane laneNumber={3} /></div>
               </div>
               <div><StatsDisplay /></div>
               <div>{this.props.gameState === 'you-lose' && gameOverDisplay}</div>
