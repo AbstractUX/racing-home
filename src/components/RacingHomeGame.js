@@ -80,10 +80,10 @@ class RacingHomeGame extends Component {
 
     return (<div className="container">
               <div className="row">
-                <div className="col padding-0"><Lane laneNumber={0} /></div>
-                <div className="col padding-0"><Lane laneNumber={1} /></div>
-                <div className="col padding-0"><Lane laneNumber={2} /></div>
-                <div className="col padding-0"><Lane laneNumber={3} /></div>
+                <div className="col padding-0"><Lane laneNumber={0} checkForCollision={this.checkForCollision} /></div>
+                <div className="col padding-0"><Lane laneNumber={1} checkForCollision={this.checkForCollision} /></div>
+                <div className="col padding-0"><Lane laneNumber={2} checkForCollision={this.checkForCollision} /></div>
+                <div className="col padding-0"><Lane laneNumber={3} checkForCollision={this.checkForCollision} /></div>
               </div>
               <div><StatsDisplay /></div>
               <div>{this.props.gameState === 'you-lose' && gameOverDisplay}</div>

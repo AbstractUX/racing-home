@@ -4,6 +4,7 @@ import './Lane.css';
 import { switchToLane } from '../actions/yourCar';
 import { connect } from 'react-redux';
 import hotkeys from 'hotkeys-js';
+import { endGame } from '../actions/gameState';
 
 class Lane extends Component {
   renderGrids = (numOfGrids) => {
@@ -31,6 +32,10 @@ class Lane extends Component {
       return;
     }
     this.props.dispatch(switchToLane(lane));
+    const collided = this.props.checkForCollision();
+    if (collided) {
+      this.props.dispatch(endGame('you-lose'));
+    }
   }
   render() {
     hotkeys('left', () => {
